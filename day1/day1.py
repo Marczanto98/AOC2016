@@ -26,17 +26,12 @@ if __name__ == "__main__":
                 else:
                     toappend = {"X" : cords["X"], "Y" : cords["Y"]  + xy}
                 if toappend in visited_cords and flag:
-                    print("*"*50)
-                    print(toappend)
                     first_loc_visited_twice = toappend
                     flag = False 
                 visited_cords.append(toappend)
-
-
-  
             cords[moves[dirs[curdir]][0]] += dist * moves[dirs[curdir]][1]
             dist = abs(cords["X"]) + abs(cords["Y"])
-        print(visited_cords)
+        # print(visited_cords)
         print("Final cords = {}".format(cords))
         print("Distance is = {}".format(dist))
         if first_loc_visited_twice != None:
