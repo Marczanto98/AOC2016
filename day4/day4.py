@@ -4,6 +4,8 @@ import collections
 
 #####
 sum = 0
+search_poattern = "northpole object storage"
+search_ID = 0
 #####
 
 if __name__ == "__main__":
@@ -37,7 +39,15 @@ if __name__ == "__main__":
                 break
         else:
             sum += num
+        
+        name = ""
+        for word in chars[:-1]:
+            for ch in word:
+                name += chr((ord(ch) + num - 97) % 26 + 97)
+            name += " "
+        if name[:-1] == search_poattern:
+            search_ID = num
 
     print("Sum = {}".format(sum))
-
+    print("ID of the room where North Pole objects are stored = {}".format(search_ID))
     
