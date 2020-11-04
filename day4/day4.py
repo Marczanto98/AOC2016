@@ -4,7 +4,7 @@ import collections
 
 #####
 sum = 0
-search_poattern = "northpole object storage"
+search_pattern = "northpole object storage"
 search_ID = 0
 #####
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
                     letters[ch] += 1
 
         letters = dict(sorted(letters.items(),  key=lambda x:x[0].lower())) #sorting alphabetically
-        letters = {k: v for k, v in sorted(letters.items(), key=lambda item: -item[1])} #sorting by value descending
+        letters = dict(sorted(letters.items(), key=lambda item: -item[1])) #sorting by value descending
         letters = collections.OrderedDict(letters)
     
         flag_new = flag_old = -1
@@ -45,7 +45,7 @@ if __name__ == "__main__":
             for ch in word:
                 name += chr((ord(ch) + num - 97) % 26 + 97)
             name += " "
-        if name[:-1] == search_poattern:
+        if name[:-1] == search_pattern:
             search_ID = num
 
     print("Sum = {}".format(sum))
