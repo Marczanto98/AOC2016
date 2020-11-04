@@ -1,6 +1,7 @@
 import os
 import sys
 import collections
+
 #####
 sum = 0
 #####
@@ -8,8 +9,8 @@ sum = 0
 if __name__ == "__main__":
     with open(os.path.join(sys.path[0],"input.txt"), "r") as f:
         instructions = f.readlines()
+
     for line in instructions:
-        print("-"*50)
         chars = "".join([i for i in line if not i.isdigit()]).split("-")
         num = int("".join([i for i in line if i.isdigit()]))
 
