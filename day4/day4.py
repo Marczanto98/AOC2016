@@ -1,0 +1,42 @@
+import os
+import sys
+import collections
+#####
+sum = 0
+#####
+
+if __name__ == "__main__":
+    with open(os.path.join(sys.path[0],"input.txt"), "r") as f:
+        instructions = f.readlines()
+    for line in instructions:
+        print("-"*50)
+        chars = "".join([i for i in line if not i.isdigit()]).split("-")
+        num = int("".join([i for i in line if i.isdigit()]))
+
+        letters = {}
+        for i in range(len(chars)-1):
+            for ch in chars[i]:
+                if ch not in letters:
+                    letters[ch] = 1
+                else:
+                    letters[ch] += 1
+
+        letters = dict(sorted(letters.items(),  key=lambda x:x[0].lower())) #sorting alphabetically
+        letters = {k: v for k, v in sorted(letters.items(), key=lambda item: -item[1])} #sorting by value descending
+        letters = collections.OrderedDict(letters)
+    
+        flag_new = flag_old = -1
+        for ch in chars[-1][1:-2]:
+            try:
+                flag_new = list(letters.keys()).index(ch)
+                if(flag_new < flag_old):
+                    break
+                flag_old = flag_new
+            except:
+                break
+        else:
+            sum += num
+
+    print("Sum = {}".format(sum))
+
+    
