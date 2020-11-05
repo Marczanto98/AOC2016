@@ -1,7 +1,6 @@
 import os
 import sys
 import string
-import numpy as np
 
 ######
 lettercounter = [dict.fromkeys(string.ascii_lowercase, 0) for i in range(8)] # *8 make shallow copies
@@ -20,4 +19,3 @@ if __name__ == "__main__":
 
     print("Password nr. 1 = {}".format(password1)) 
     print("Password nr. 2 = {}".format(password2)) 
-   
